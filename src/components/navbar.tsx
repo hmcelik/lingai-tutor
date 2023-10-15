@@ -23,12 +23,14 @@ const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
     app;
     const [user] = useAuthState(auth);  
     let displayName = "Login"
+    let profileURL = "/login"
     let email = "Login"
     let photoURL = "https://static.wikia.nocookie.net/140d4cba-eb7b-46a6-b102-6870ad6db725/scale-to-width/755"
     let emailVerified = "Login"
 
     if (user) {
         displayName = user.displayName?.split(' ')[0] || '';
+        profileURL = "/profile"
         email = user.email || "";
         photoURL = user.photoURL || "";
         emailVerified = user.emailVerified.toString() || "";
@@ -56,11 +58,12 @@ const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
             <div id="nav-footer">
                 <div id="nav-footer-heading">
                 <div id="nav-footer-avatar"><img src={photoURL}/></div>
-                <div id="nav-footer-titlebox"><a id="nav-footer-title" href="" target="">{displayName}</a><span id="nav-footer-subtitle">Admin</span></div>
+                <div id="nav-footer-titlebox"><a id="nav-footer-title" href={profileURL} target="">{displayName}</a><span id="nav-footer-subtitle">Admin</span></div>
                 <label htmlFor="nav-footer-toggle"><FontAwesomeIcon className='icon-s' icon={faCaretUp}/></label>
                 </div>
                 <div id="nav-footer-content">
                 <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <button id='sign-out-button' onClick={() => auth.signOut()}>Sign Out</button>
                 </div>
             </div>
             </div>

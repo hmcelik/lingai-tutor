@@ -280,6 +280,16 @@
     align-items: center;
   }
   
+  #sign-out-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--navbar-dark-secondary);
+    padding: 0.5rem;
+    border-radius: 16px;
+  }
+
   #nav-footer-avatar {
     position: relative;
     margin: 11px 0 11px 16px;
